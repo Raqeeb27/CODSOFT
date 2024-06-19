@@ -6,7 +6,7 @@
 try:
     from colorama import Fore, Style
 except ImportError:
-    print("This script requires the 'colorama' module.\nPlease install it using 'pip install colorama' and try again.")
+    print("\nERROR!\nThis script requires the 'colorama' module.\nPlease install it using 'pip install colorama' and try again.")
     exit(1)
 from time import sleep
 
@@ -38,7 +38,7 @@ def calculator():
     elif user_input == '4':
         perform_calculation('Division', '/')
     elif user_input == '5':
-        print(f"{green}\nExiting...\nHave a nice day!{reset}")
+        print(f"{green}{bright}\nExiting...\nHave a nice day!{reset}")
         exit(0)
     else:
         sleep(0.2)
@@ -75,7 +75,7 @@ def main():
         if user_input in ['', 'y', 'yes']:
             continue
         elif user_input in ['n', 'no']:
-            print(f"{red}\nExiting...\nHave a nice day!{reset}")
+            print(f"{green}{bright}\nExiting...\nHave a nice day!{reset}")
             break
         else:
             print(f"{red}\nUnrecognized Input!!!\n\nExiting...\nHave a nice day!{reset}")
