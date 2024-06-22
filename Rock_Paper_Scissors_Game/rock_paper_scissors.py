@@ -1,7 +1,7 @@
 # Script: rock_paper_scissors.py
 # Description: Rock, Paper, Scissors Game
 # Author: Mohammed Abdul Raqeeb
-# Date: 14/06/2024
+# Date: 22/06/2024
 
 try:
     from colorama import Fore, Style
@@ -30,8 +30,11 @@ def play_round():
     # Choices available for the game
     game_choices = ['Rock', 'Paper', 'Scissors', 'R', 'P', 'S']
     user_input = input(
-        f"\n{yellow}{bright}" + f" Player ".center(22, "-") + f"{reset}{cyan}\n Choose from the following: \n\'Rock\'🪨  (r) , \'Paper\'📃 (p) , \'Scissors\'✂️  (s){reset}\n\n{blue} ---> {reset}").strip().title()
+        f"\n{yellow}{bright}" + f" Player ".center(22, "-") + f"{reset}{cyan}\n Choose from the following: \n\'Rock\'🪨  (r) , \'Paper\'📃 (p) , \'Scissors\'✂️  (s){reset}   ['q' to Quit]\n\n{blue} ---> {reset}").strip().title()
     print()
+    
+    if user_input in ['Q']:
+        return "Q", None, None
     
     if user_input not in game_choices:
         return None, None, None
@@ -106,6 +109,11 @@ def main():
             sleep(1)
             print()
             continue
+        elif player_win in ['Q']:
+            print(f"{magenta}!!! Game Over !!!\nHOPE YOU ENJOYED 😇{reset}\n")
+            sleep(0.5)
+            display_scoreboard(player_score, computer_score, draw_count)
+            break
         
         player_score += player_win
         computer_score += computer_win
